@@ -1,12 +1,6 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        /*
-         * Return max len of sub arr containing only 1's of binary nums[] after deleting one elem
-         *
-         * Never-thrink window: trace only maxLen, step left only when finding a zero
-         * T: O(n), S: O(1)
-         */
         int left = 0;
         int zeros = 0;
 

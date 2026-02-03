@@ -1,12 +1,6 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        /*
-         * Return the max amount of water can contain with height[]
-         *
-         * area = width * height, width is right - left, height is low(height[r], height[l])
-         * maximize width first, thrinking width to find larger area, keep the higher bound
-         */
         int left = 0;
         int right = height.size() - 1;
         int maxArea = 0;

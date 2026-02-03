@@ -1,14 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
-        /*
-         * Return a list answer[] of size 2
-         * answer[0]: list of distinct vals in nums1[] but not in nums2[]
-         * answer[1]: list of distinct vals in nums2[] but not in nums1[]
-         *
-         * focus on answer[0]: traverse distinct nums1[], verify if in nums2[] -> hash-set both
-         * T: O(n + m), S: O(n + m)
-         */
         unordered_set<int> set1(nums1.begin(), nums1.end());
         unordered_set<int> set2(nums2.begin(), nums2.end());
 
@@ -36,11 +28,6 @@ public:
 class Solution {
 public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
-        /*
-         * no hash overhead, seq mem access for cache
-         * two-pointers + sort
-         * T: O(nlogn + mlogm), S: O(1)
-         */
         sort(nums1.begin(), nums1.end());
         nums1.erase(unique(nums1.begin(), nums1.end()), nums1.end()); // unique on sorted, move to the front, return new end
         sort(nums2.begin(), nums2.end());

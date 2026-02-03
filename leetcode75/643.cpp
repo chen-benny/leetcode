@@ -1,12 +1,6 @@
 class Solution {
 public:
     double findMaxAverage(vector<int>& nums, int k) {
-        /*
-         * Return the max avg of contiguous sub arr of k size in nums[], less than 10-5 error
-         *
-         * Sliding window exhuast all possible sub arr of k
-         * T: O(n), S: O(1)
-         */
         int winSum = 0;
         for (int i = 0; i < k; i++) {
             winSum += nums[i];

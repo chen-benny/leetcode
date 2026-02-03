@@ -1,15 +1,6 @@
 class Solution {
 public:
     string gcdOfStrings(string str1, string str2) {
-        /*
-         * Return the largest string divides both two given strings
-         * 
-         * Divide: can form target concatenating with itself
-         * Divide means size of str1 and str2 must be multiple of res: e.g. ababab && abab -> ab
-         * Compute gcd size -> verify can form both
-         * T: O(m + n + log(min(m, n))
-         * S: O(gcd(m, n))
-         */
         int m = str1.size();
         int n = str2.size();
         int len = gcd(m, n);
@@ -46,11 +37,6 @@ private:
 class Solution {
 public:
     string gcdOfStrings(string str1, string str2) {
-        /*
-         * Divide both == str1 and str2 are composed by same pattern: pre-verify
-         * T: O(m + n)
-         * S: O(gcd(m, n))
-         */
         if (str1 + str2 != str2 + str1) {
             return "";
         }

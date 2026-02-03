@@ -1,14 +1,6 @@
 class Solution {
 public:
     bool canPlaceFlowers(vector<int>& flowerbed, int n) {
-        /*
-         * Return true if n new flowers can be planted into flowerbed[] without adjancent violating
-         *
-         * One pointer traversing && judge if adjacent && mark if planted and decrease n
-         * Handles 0 and n-1 indices
-         * T: O(n)
-         * T: O(1)
-         */
         int sz = flowerbed.size();
 
         for (int i = 0; i < sz && n > 0; i++) {

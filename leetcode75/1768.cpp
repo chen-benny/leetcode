@@ -1,14 +1,6 @@
 class Solution {
 public:
     string mergeAlternately(string word1, string word2) {
-        /**
-         * Merge two strings alternatinly
-         * 
-         * One pointer traversing && build result string
-         * Handles mismatch length
-         * T: O(m + n)
-         * S: O(m + n)
-         */
         int m = word1.size();
         int n = word2.size();
         string res;

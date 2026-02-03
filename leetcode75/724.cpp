@@ -1,14 +1,6 @@
 class Solution {
 public:
     int pivotIndex(vector<int>& nums) {
-        /*
-         * Return the pivot index of nums[]
-         * pivot index: sum of left num == sum of right num of index
-         * 
-         * prefix-sum: linear traverse + pre-sum to get sum of left num
-         * sum of right sum == total sum - sum of left num - nums[i]
-         * T: O(n), S: O(1)
-         */
         int totalSum = 0;
         for (int num : nums) {
             totalSum += num;

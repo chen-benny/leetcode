@@ -5,14 +5,6 @@ using std::vector;
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        /*
-         * Return an array where each element is product of all elements in nums except nums[i]
-         *
-         * Product Except itself == product of left * product or right
-         * Each linear scan can trace product of one side && update one part in place
-         * T: O(n)
-         * S: O(1)
-         */
         int n = nums.size();
         vector<int> res(n, 1);
 

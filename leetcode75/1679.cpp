@@ -1,14 +1,6 @@
 class Solution {
 public:
     int maxOperations(vector<int>& nums, int k) {
-        /*
-         * Return the max num of op on nums[]
-         *
-         * op: pick two vals sum equals k and remove them
-         * for val, find k - val in nums[] and remove
-         * T: O(n)
-         * S: O(n)
-         */
         unordered_map<int, int> freq;
         int cnt = 0;
 
@@ -31,9 +23,6 @@ public:
 class Solution {
 public:
     int maxOperations(vector<int>& nums, int k) {
-        /*
-         * Sort + two-pointers: try pair starting from max-val + min-val, then adjusting by sum-k
-         */
         sort(nums.begin(), nums.end());
         int left = 0;
         int right = nums.size() - 1;

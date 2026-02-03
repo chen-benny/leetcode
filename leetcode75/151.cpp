@@ -1,14 +1,6 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        /*
-         * Reverse the words in string
-         *
-         * Two Pointers: start reading from backward, each time append one word
-         * Clean leading, trailing and extra spaces
-         * T: O(n)
-         * S: O(n)
-         */
         int n = s.size();
         int end = n - 1;
         int start;
@@ -42,10 +34,6 @@ public:
 class Solution {
 public:
     string reverseWords(string s) {
-        /*
-         * Reverse all characters and then reverse per word
-         * Two pointers: read, write
-         */
         reverse(s.begin(), s.end());
 
         int n = s.size();
