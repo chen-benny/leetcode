@@ -6,53 +6,42 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        std::unordered_map<int, int> visited; // {val: idx}
-        visited.reserve(nums.size());
-        visited.max_load_factor(0.25f);
+        std::unordered_map<int, int> seen; // {val: idx}
+        seen.reserve(nums.size());
+        seen.max_load_factor(0.25f);
 
         for (int i = 0; i < static_cast<int>(nums.size()); i++) {
-            int comp = target - nums[i];
-            auto it = visited.find(comp);
-            if (it != visited.end()) { return {it->second, i}; }
-            visited[nums[i]] = i;
+            int val = nums[i];
+            int comp = target - val;
+            auto it = seen.find(comp);
+            if (it != seen.end()) { return {it->second, i}; }
+            seen[val] = i;
         }
         return {};
     }
 };
 
-// constraints: nums[i] in [-10^4, 10^4]
 // flat-array, T: O(n), S: O(R), R = value range, stack-allocated
 
 #include <vector>
-#include <cstring>
+#include <algorithm> // std::fill
 
 class Solution {
 public:
     std::vector<int> twoSum(std::vector<int>& nums, int target) {
-        constexpr int OFFSET = 10001;
-        constexpr int RANGE = 20003;
-        constexpr int MIN_VAL = -10000;
-        constexpr int MAX_VAL = 10000;
-        int table[RANGE];
-        std::memset(table, -1, sizeof(table));
+        constexpr int BASE = -10'000;
+        constexpr int R = 20'001; // [-10000, 10000]
+        int table[R];
+        std::fill(table, table + R, -1); // type-safe alter of std::memset
 
         for (int i = 0; i < static_cast<int>(nums.size()); i++) {
-            int comp = target - nums[i];
-            if (comp >= MIN_VAL && comp <= MAX_VAL && table[comp + OFFSET] != -1) {
-                return {table[comp + OFFSET], i};
+            int val = nums[i];
+            int comp = target - val;
+            if (comp >= BASE && comp < BASE + R && table[comp-BASE] != -1) {
+                return {table[comp-BASE], i};
             }
-            table[nums[i] + OFFSET] = i;
+            table[val-BASE] = i;
         }
         return {};
     }
 };
-
-/*
-   - cache behavior
-   - hot-path allocation
-   - branch prediction
-  
-   ? when flat array breaks down
-   ? why constexpr OFFSET instead of runtime variable
-   ? flat_hash_map vs unordered_map with unbounded range
- */
